@@ -1,17 +1,18 @@
 #include "hzpch.h"
-#include "Hazel/Renderer/VertexArray.h"
+#include "Framebuffer.h"
 
 #include "Hazel/Renderer/Renderer.h"
-#include "Platform/OpenGL/OpenGLVertexArray.h"
+
+#include "Platform/OpenGL/OpenGLFramebuffer.h"
 
 namespace Hazel {
-
-	Ref<VertexArray> VertexArray::Create()
+	
+	Ref<Framebuffer> Framebuffer::Create(const FramebufferSpecification& spec)
 	{
 		switch (Renderer::GetAPI())
 		{
 			case RendererAPI::API::None:    HZ_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-			case RendererAPI::API::OpenGL:  return CreateRef<OpenGLVertexArray>();
+			case RendererAPI::API::OpenGL:  return CreateRef<OpenGLFramebuffer>(spec);
 		}
 
 		HZ_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -19,3 +20,4 @@ namespace Hazel {
 	}
 
 }
+
