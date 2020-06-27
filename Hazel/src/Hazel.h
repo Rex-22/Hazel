@@ -14,6 +14,7 @@
 #include "Hazel/Core/KeyCodes.h"
 #include "Hazel/Core/MouseCodes.h"
 #include "Hazel/Renderer/OrthographicCameraController.h"
+#include "Hazel/Core/Io.h"
 
 #include "Hazel/ImGui/ImGuiLayer.h"
 
